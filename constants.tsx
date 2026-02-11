@@ -15,16 +15,18 @@ import {
   ShoppingBag,
   Utensils,
   Dumbbell,
-  Building
+  Building,
+  Sparkles
 } from 'lucide-react';
 import { AppSection } from './types';
 
+// Cores extraídas diretamente da logo enviada
 export const COLORS = {
-  primary: '#8c7355',
-  secondary: '#d4af37',
-  bg: '#f7f3f0',
-  text: '#4a3f35',
-  accent: '#e6be8a'
+  primary: '#5d4017',   // Marrom do tronco
+  secondary: '#f8bc15', // Amarelo das flores/folhas
+  bg: '#fcfaf7',        // Bege claríssimo para o fundo
+  text: '#3d2b10',      // Texto em marrom escuro
+  accent: '#f8bc15'     // Destaques em amarelo
 };
 
 export const MENU_ITEMS = [
@@ -34,6 +36,7 @@ export const MENU_ITEMS = [
   { id: AppSection.LOCAL_GUIDE, title: 'Guia Local', icon: <MapPin size={28} />, description: 'O que fazer por perto' },
   { id: AppSection.CHECKOUT, title: 'Check-out', icon: <LogOut size={28} />, description: 'Lembretes para sua saída' },
   { id: AppSection.EMERGENCY, title: 'Emergência', icon: <PhoneCall size={28} />, description: 'Contatos importantes' },
+  { id: AppSection.CHAT, title: 'Assistente AI', icon: <Sparkles size={28} />, description: 'Tire dúvidas sobre sua estadia' },
 ];
 
 export const WIFI_INFO = {

@@ -6,7 +6,8 @@ export enum AppSection {
   RULES = 'rules',
   LOCAL_GUIDE = 'local_guide',
   CHECKOUT = 'checkout',
-  EMERGENCY = 'emergency'
+  EMERGENCY = 'emergency',
+  CHAT = 'chat'
 }
 
 export interface LocalPlace {
@@ -20,4 +21,9 @@ export interface EmergencyContact {
   name: string;
   number: string;
   description?: string;
+}
+
+export interface Message {
+  role: 'user' | 'model';
+  text: string;
 }

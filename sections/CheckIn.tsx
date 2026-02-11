@@ -3,6 +3,9 @@ import React from 'react';
 import { Clock, Smartphone, MapPin, ChevronRight, Info } from 'lucide-react';
 
 const CheckInSection: React.FC = () => {
+  const destinationAddress = "Condomínio do Edifício Crystal Place, Av. Edmundo P. de Abreu, 31 - St. Pedro Ludovico, Goiânia - GO, 74823-030";
+  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destinationAddress)}`;
+
   return (
     <div className="p-6 animate-fadeIn space-y-6">
       {/* Times Card */}
@@ -38,10 +41,10 @@ const CheckInSection: React.FC = () => {
           
           <div className="bg-white/10 p-4 rounded-xl border border-white/20">
             <p className="text-xs uppercase font-bold tracking-widest mb-1 opacity-80">Estrutura da Senha</p>
-            <p className="text-2xl font-mono text-center tracking-[0.2em] font-bold">
-              * <span className="text-accent">000</span> + <span className="text-white">DIA</span><span className="text-white">MES</span> #
+            <p className="text-2xl font-mono text-center tracking-[0.1em] font-bold">
+              *<span className="text-accent">DDD</span><span className="text-white">PREFIXO</span>#
             </p>
-            <p className="text-[10px] mt-2 text-center opacity-70">Exemplo para 29/Março: <span className="font-mono">*0002903#</span></p>
+            <p className="text-[10px] mt-2 text-center opacity-70">Exemplo para (62) 98545...: <span className="font-mono">*6298545#</span></p>
           </div>
 
           <div className="flex items-start gap-3 bg-white/20 p-3 rounded-lg text-sm">
@@ -62,14 +65,17 @@ const CheckInSection: React.FC = () => {
       {/* External Links */}
       <div className="space-y-3">
         <a 
-          href="https://www.google.com/maps/dir/?api=1&destination=-16.711812,-49.256877" 
+          href={mapsUrl}
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center justify-between w-full p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
         >
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-50 text-blue-600 rounded-lg"><MapPin size={20} /></div>
-            <span className="font-bold text-gray-700">Como chegar</span>
+            <div className="flex flex-col">
+              <span className="font-bold text-gray-700">Como chegar</span>
+              <span className="text-[10px] text-gray-400">Crystal Place</span>
+            </div>
           </div>
           <ChevronRight size={20} className="text-gray-300" />
         </a>
