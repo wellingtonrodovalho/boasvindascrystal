@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { WIFI_INFO, COLORS } from '../constants';
-import { Wifi, Tv, Coffee, Utensils, Wind, Shirt, Building, ExternalLink, Bed, ChevronDown, ChevronUp, Monitor } from 'lucide-react';
+import { WIFI_INFO } from '../constants';
+import { Wifi, Tv, Coffee, Wind, Shirt, Building, ExternalLink, Bed, ChevronDown, ChevronUp, Monitor, Info, Power, Radio, Film } from 'lucide-react';
 
 const ApartmentSection: React.FC = () => {
   const manualCafeteiraUrl = "https://docs.google.com/presentation/d/1npz-wlSkhDQNbPA5bACCCIG6XIrYGRtw1yEb621EBEg/edit?usp=sharing";
@@ -36,35 +36,53 @@ const ApartmentSection: React.FC = () => {
 
       {/* Guia da Casa Items */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold font-serif text-[#5d4017] border-b pb-2">Facilidades</h3>
+        <div className="flex items-center justify-between border-b pb-2">
+          <h3 className="text-xl font-bold font-serif text-[#5d4017]">Facilidades</h3>
+          <span className="text-[10px] bg-[#5d4017]/5 text-[#5d4017] px-2 py-1 rounded-full uppercase font-bold">Toque nos cards para detalhes</span>
+        </div>
         
         <div className="grid grid-cols-1 gap-4">
-          {/* TV DO QUARTO - NOVO ITEM COM PASSO A PASSO */}
+          {/* TV DO QUARTO - REFINADA PARA MÁXIMA SIMPLICIDADE */}
           <ExpandableFeatureCard 
             icon={<Monitor className="text-blue-600" />}
             title="TV DO QUARTO (CANAIS & NETFLIX)"
-            description="Aprenda a usar os 3 controles para ver TV ou Netflix."
+            description="Como alternar entre Canais Abertos e Netflix usando os 3 controles."
+            priority={true}
           >
             <div className="mt-4 space-y-4 text-sm border-t pt-4 border-gray-100">
-              <div className="bg-blue-50 p-3 rounded-xl">
-                <p className="font-bold text-blue-800 mb-1">1. LIGAR A TV</p>
-                <p className="text-blue-700">Use o <strong>Controle da TV</strong> (botão Power vermelho).</p>
+              <div className="bg-red-50 p-4 rounded-xl border border-red-100">
+                <div className="flex items-center gap-2 mb-2 text-red-700 font-bold">
+                  <Power size={18} />
+                  <span>PASSO 1: LIGAR TUDO</span>
+                </div>
+                <p className="text-gray-700">Pegue o <strong>Controle da TV</strong> e aperte o botão vermelho de ligar.</p>
               </div>
 
-              <div className="bg-gray-50 p-3 rounded-xl">
-                <p className="font-bold text-gray-800 mb-1">2. CANAIS ABERTOS</p>
-                <ul className="list-disc ml-4 space-y-1 text-gray-600">
-                  <li>No controle da TV, aperte <strong>INPUT</strong> ou <strong>SOURCE</strong> e selecione a entrada dos canais.</li>
-                  <li>Use o <strong>Controle Branco (Intelbras)</strong> para mudar os canais.</li>
+              <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                <div className="flex items-center gap-2 mb-2 text-gray-700 font-bold">
+                  <Radio size={18} />
+                  <span>PASSO 2: VER CANAIS ABERTOS</span>
+                </div>
+                <ul className="space-y-2 text-gray-600 ml-1">
+                  <li>• No controle da TV, aperte <strong>INPUT</strong> (ou Source) e selecione a entrada de antena.</li>
+                  <li>• Agora use o <strong>Controle Branco (Intelbras)</strong> para mudar os canais e volume.</li>
                 </ul>
               </div>
 
-              <div className="bg-amber-50 p-3 rounded-xl">
-                <p className="font-bold text-amber-800 mb-1">3. NETFLIX (MI STICK)</p>
-                <ul className="list-disc ml-4 space-y-1 text-amber-700">
-                  <li>No controle da TV, mude a entrada (HDMI) para onde o Mi Stick está ligado.</li>
-                  <li>Use o <strong>Controle do Mi Stick</strong> para navegar no Netflix e Youtube.</li>
+              <div className="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                <div className="flex items-center gap-2 mb-2 text-amber-700 font-bold">
+                  <Film size={18} />
+                  <span>PASSO 3: VER NETFLIX</span>
+                </div>
+                <ul className="space-y-2 text-gray-600 ml-1">
+                  <li>• No controle da TV, mude a entrada (Input) para <strong>HDMI</strong>.</li>
+                  <li>• Agora use o <strong>Controle do Mi Stick</strong> para escolher filmes na Netflix ou YouTube.</li>
                 </ul>
+              </div>
+
+              <div className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg text-[12px] text-blue-800">
+                <Info size={16} className="shrink-0 mt-0.5" />
+                <p>Se a tela ficar preta, verifique se mudou a entrada (Input/Source) corretamente no controle da TV.</p>
               </div>
             </div>
           </ExpandableFeatureCard>
@@ -72,15 +90,15 @@ const ApartmentSection: React.FC = () => {
           <FeatureCard 
             icon={<Coffee className="text-[#5d4017]" />}
             title="CAFETEIRA TRÊS CORAÇÕES"
-            description="Escolha a cápsula, insira no suporte e pressione o botão desejado."
+            description="Cápsulas e manual de uso rápido."
             href={manualCafeteiraUrl}
             isButton={true}
           />
           
           <FeatureCard 
             icon={<Bed className="text-[#5d4017]" />}
-            title="SOFÁ-CAMA DE CASAL"
-            description="Aprenda a transformar o sofá em uma confortável cama de casal."
+            title="SOFÁ-CAMA"
+            description="Como transformar o sofá em cama de casal."
             href={manualSofaCamaUrl}
             isButton={true}
           />
@@ -88,28 +106,23 @@ const ApartmentSection: React.FC = () => {
           <FeatureCard 
             icon={<Tv className="text-blue-500" />}
             title="SMART TV SALA (43')"
-            description="Netflix, Pluto TV e Youtube integrados. Controle único."
+            description="Netflix e Youtube integrados em um único controle."
           />
           
           <FeatureCard 
             icon={<Wind className="text-cyan-500" />}
             title="AR CONDICIONADO"
-            description="Os controles estão na mesa de cabeceira ao lado da cama."
-          />
-          <FeatureCard 
-            icon={<Utensils className="text-orange-500" />}
-            title="COZINHA"
-            description="Talheres e panelas disponíveis nos armários."
+            description="Controle disponível na mesa de cabeceira."
           />
           <FeatureCard 
             icon={<Shirt className="text-indigo-500" />}
-            title="LAVANDERIA"
-            description="Self-service no sub-solo. Custo aproximado R$ 16,00 para lavar e R$ 16,00 para secar."
+            title="LAVANDERIA (SUB-SOLO)"
+            description="Self-service. R$ 16,00 lavar / R$ 16,00 secar."
           />
           <FeatureCard 
             icon={<Building className="text-amber-600" />}
             title="LAZER (MEZANINO)"
-            description="Academia, Sauna, Piscina e SmartStore. Aperte 'M' no elevador."
+            description="Piscina, Academia e SmartStore (Aperte M)."
           />
         </div>
       </section>
@@ -117,7 +130,6 @@ const ApartmentSection: React.FC = () => {
   );
 };
 
-// Componente para cards simples
 const FeatureCard: React.FC<{ 
   icon: React.ReactNode, 
   title: string, 
@@ -128,7 +140,7 @@ const FeatureCard: React.FC<{
   const content = (
     <div className={`bg-white p-4 rounded-xl shadow-sm flex gap-4 border transition-all duration-300 ${
       isButton 
-        ? 'border-[#f8bc15] ring-1 ring-[#f8bc15]/20 shadow-md active:scale-[0.98]' 
+        ? 'border-[#f8bc15] ring-1 ring-[#f8bc15]/10 shadow-md active:scale-[0.98]' 
         : 'border-gray-100'
     }`}>
       <div className={`p-2 h-fit rounded-lg ${isButton ? 'bg-[#f8bc15]/10' : 'bg-gray-50'}`}>
@@ -141,8 +153,8 @@ const FeatureCard: React.FC<{
         </div>
         <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
         {isButton && (
-          <p className="text-[10px] text-[#f8bc15] font-black mt-2 uppercase tracking-widest flex items-center gap-1">
-            Clique para ver o tutorial
+          <p className="text-[10px] text-[#f8bc15] font-black mt-2 uppercase tracking-widest">
+            Toque para ver tutorial
           </p>
         )}
       </div>
@@ -160,19 +172,19 @@ const FeatureCard: React.FC<{
   return content;
 };
 
-// Componente para cards que expandem (como o da TV do quarto)
 const ExpandableFeatureCard: React.FC<{
   icon: React.ReactNode,
   title: string,
   description: string,
-  children: React.ReactNode
-}> = ({ icon, title, description, children }) => {
+  children: React.ReactNode,
+  priority?: boolean
+}> = ({ icon, title, description, children, priority }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div 
       className={`bg-white rounded-xl shadow-md border transition-all duration-300 overflow-hidden ${
-        isOpen ? 'border-[#5d4017] ring-1 ring-[#5d4017]/10' : 'border-gray-100'
+        isOpen ? 'border-[#5d4017] ring-1 ring-[#5d4017]/10' : priority ? 'border-blue-100 ring-1 ring-blue-50' : 'border-gray-100'
       }`}
     >
       <button 
@@ -189,8 +201,8 @@ const ExpandableFeatureCard: React.FC<{
           </div>
           <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
           {!isOpen && (
-            <p className="text-[10px] text-[#5d4017] font-black mt-2 uppercase tracking-widest">
-              Toque para ver o passo a passo
+            <p className="text-[10px] text-[#5d4017] font-black mt-2 uppercase tracking-widest flex items-center gap-1">
+              {priority ? '💡 Importante: Toque para instruções' : 'Toque para detalhes'}
             </p>
           )}
         </div>
