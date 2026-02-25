@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { AppSection } from './types';
 import { COLORS, MENU_ITEMS } from './constants';
-import { ChevronLeft, Menu as MenuIcon, X, MessageCircle } from 'lucide-react';
+import { ChevronLeft, Menu as MenuIcon, X, MessageCircle, Home as HomeIcon } from 'lucide-react';
 
 // Sections
 import HomeSection from './sections/Home';
@@ -139,6 +139,17 @@ const App: React.FC = () => {
         >
           <MessageCircle size={28} />
         </a>
+      )}
+
+      {/* Floating Home Button */}
+      {activeSection !== AppSection.HOME && (
+        <button 
+          onClick={() => setActiveSection(AppSection.HOME)}
+          className="fixed bottom-8 left-8 bg-[#5d4017] text-[#f1b418] p-5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all z-40 border-4 border-white flex items-center justify-center animate-slideUp"
+          aria-label="Voltar ao início"
+        >
+          <HomeIcon size={28} />
+        </button>
       )}
     </div>
   );

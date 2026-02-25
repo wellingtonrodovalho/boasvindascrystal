@@ -14,6 +14,8 @@ export interface LocalPlace {
   category: string;
   description?: string;
   address?: string;
+  mapUrl?: string;
+  wazeUrl?: string;
 }
 
 export interface EmergencyContact {

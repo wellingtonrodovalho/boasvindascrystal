@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { LOCAL_PLACES } from '../constants';
-import { MapPin, Navigation, Search, Utensils, ShoppingBag, Landmark } from 'lucide-react';
+import { MapPin, Navigation, Search, Utensils, ShoppingBag, Landmark, Coffee, ShieldAlert, PhoneCall } from 'lucide-react';
 
-const categories = ['Tudo', 'Restaurantes', 'Supermercados', 'Shoppings', 'Lazer'];
+const categories = ['Tudo', 'Restaurantes', 'Panificadora', 'Farmácias', 'Supermercados', 'Shoppings', 'Lazer', 'Emergência Médica'];
 
 const LocalGuideSection: React.FC = () => {
   const [filter, setFilter] = useState('Tudo');
@@ -12,14 +12,25 @@ const LocalGuideSection: React.FC = () => {
     ? LOCAL_PLACES 
     : LOCAL_PLACES.filter(p => p.category === filter);
 
-  const handleNavigate = (address: string) => {
+  const handleNavigate = (address: string, mapUrl?: string) => {
+    if (mapUrl) {
+      window.open(mapUrl, '_blank');
+      return;
+    }
     const encoded = encodeURIComponent(address);
     window.open(`https://www.google.com/maps/search/?api=1&query=${encoded}`, '_blank');
+  };
+
+  const handleWaze = (wazeUrl: string) => {
+    window.open(wazeUrl, '_blank');
   };
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'Restaurantes': return <Utensils size={18} />;
+      case 'Panificadora': return <Coffee size={18} />;
+      case 'Farmácias': return <ShieldAlert size={18} />;
+      case 'Emergência Médica': return <PhoneCall size={18} />;
       case 'Supermercados': return <Search size={18} />;
       case 'Shoppings': return <ShoppingBag size={18} />;
       case 'Lazer': return <Landmark size={18} />;
@@ -71,13 +82,24 @@ const LocalGuideSection: React.FC = () => {
               </div>
             </div>
             
-            <button 
-              onClick={() => handleNavigate(place.address || place.name)}
-              className="bg-[#5d4017] text-[#f1b418] p-3 rounded-xl flex items-center justify-center shadow-md active:scale-90 transition-all hover:bg-[#3d2b10] shrink-0"
-              aria-label="Abrir no Google Maps"
-            >
-              <Navigation size={20} />
-            </button>
+            <div className="flex flex-col gap-2 shrink-0">
+              <button 
+                onClick={() => handleNavigate(place.address || place.name, place.mapUrl)}
+                className="bg-[#5d4017] text-[#f1b418] p-3 rounded-xl flex items-center justify-center shadow-md active:scale-90 transition-all hover:bg-[#3d2b10]"
+                aria-label="Abrir no Google Maps"
+              >
+                <Navigation size={20} />
+              </button>
+              {place.wazeUrl && (
+                <button 
+                  onClick={() => handleWaze(place.wazeUrl!)}
+                  className="bg-[#05C8F8] text-white p-3 rounded-xl flex items-center justify-center shadow-md active:scale-90 transition-all hover:bg-[#04a8d1]"
+                  aria-label="Abrir no Waze"
+                >
+                  <span className="font-black text-[10px]">WAZE</span>
+                </button>
+              )}
+            </div>
           </div>
         ))}
 
