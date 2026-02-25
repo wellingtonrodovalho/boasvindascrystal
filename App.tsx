@@ -129,6 +129,43 @@ const App: React.FC = () => {
         </div>
       </main>
 
+      {/* Professional Footer */}
+      <footer className="w-full bg-white border-t border-gray-100 py-12 px-6 mt-auto flex flex-col items-center">
+        <div className="w-full max-w-5xl flex flex-col items-center text-center gap-6">
+          <div className="flex flex-col gap-1">
+            <p className="text-[#5d4017] font-serif font-bold text-xl uppercase tracking-tight">Wellington Rodovalho Fonseca</p>
+            <p className="text-gray-400 text-[10px] uppercase tracking-[0.2em] font-black">Corretor de Imóveis</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full text-[12px] text-gray-500">
+            <div className="flex flex-col gap-2">
+              <p className="font-bold text-[#5d4017] text-[10px] uppercase tracking-widest opacity-60 mb-1">Documentação</p>
+              <p><span className="font-bold text-[#5d4017]">CAEPF:</span> 269.462.701/001-49</p>
+              <p><span className="font-bold text-[#5d4017]">CRECI:</span> GO 42695</p>
+              <p><span className="font-bold text-[#5d4017]">CNAI:</span> 54826</p>
+            </div>
+            
+            <div className="flex flex-col gap-2">
+              <p className="font-bold text-[#5d4017] text-[10px] uppercase tracking-widest opacity-60 mb-1">Digital</p>
+              <a href="https://www.alugagoias.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-[#f1b418] transition-colors font-medium underline underline-offset-4 decoration-gray-200">www.alugagoias.com.br</a>
+              <a href="mailto:contato@alugagoias.com.br" className="hover:text-[#f1b418] transition-colors font-medium">contato@alugagoias.com.br</a>
+            </div>
+            
+            <div className="flex flex-col gap-2">
+              <p className="font-bold text-[#5d4017] text-[10px] uppercase tracking-widest opacity-60 mb-1">Contato Direto</p>
+              <a href="https://wa.me/5562985451980" target="_blank" rel="noopener noreferrer" className="bg-[#25D366]/10 text-[#5d4017] py-2 px-4 rounded-xl hover:bg-[#25D366]/20 transition-all font-bold inline-flex items-center justify-center gap-2">
+                <MessageCircle size={16} className="text-[#25D366]" />
+                (62) 98545-1980
+              </a>
+            </div>
+          </div>
+          
+          <div className="pt-8 border-t border-gray-50 w-full text-[9px] text-gray-300 uppercase tracking-[0.4em] font-black">
+            Flat Ipê • Goiânia, BR
+          </div>
+        </div>
+      </footer>
+
       {/* Quick Access Floating Button - WhatsApp Branding */}
       {activeSection !== AppSection.EMERGENCY && (
         <a 
