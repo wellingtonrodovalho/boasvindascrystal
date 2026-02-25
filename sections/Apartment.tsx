@@ -41,7 +41,7 @@ const ApartmentSection: React.FC = () => {
           <span className="text-[10px] bg-[#5d4017]/5 text-[#5d4017] px-2 py-1 rounded-full uppercase font-bold">Toque nos cards para detalhes</span>
         </div>
         
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* TV DO QUARTO - REFINADA PARA MÁXIMA SIMPLICIDADE */}
           <ExpandableFeatureCard 
             icon={<Monitor className="text-blue-600" />}

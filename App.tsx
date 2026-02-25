@@ -50,54 +50,56 @@ const App: React.FC = () => {
   const currentTitle = MENU_ITEMS.find(item => item.id === activeSection)?.title || 'Flat Ipê';
 
   return (
-    <div className="min-h-screen flex flex-col max-w-lg mx-auto bg-[#fcfaf7] shadow-2xl relative">
+    <div className="min-h-screen flex flex-col bg-[#fcfaf7] relative">
       {/* Frozen Header */}
       <header 
-        className={`sticky top-0 z-50 px-5 py-4 flex items-center justify-between transition-all duration-300 border-b ${
+        className={`sticky top-0 z-50 px-5 py-4 flex items-center justify-center transition-all duration-300 border-b ${
           activeSection === AppSection.HOME 
             ? (scrolled ? 'bg-[#5d4017]/95 backdrop-blur-md shadow-lg border-[#5d4017]/20' : 'bg-[#5d4017] border-transparent') 
             : 'bg-white/90 backdrop-blur-md shadow-md border-gray-100'
         }`}
       >
-        <div className="flex items-center gap-2">
-          {activeSection !== AppSection.HOME && (
-            <button 
-              onClick={() => setActiveSection(AppSection.HOME)}
-              className="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-[#5d4017]"
-              aria-label="Voltar para o início"
-            >
-              <ChevronLeft size={24} />
-            </button>
-          )}
-          <h1 className={`font-serif font-bold transition-all duration-300 ${
-            activeSection === AppSection.HOME 
-              ? 'text-xl text-[#f8bc15]' 
-              : 'text-lg text-[#5d4017]'
-          }`}>
-            {activeSection === AppSection.HOME ? 'FLAT IPÊ' : currentTitle.toUpperCase()}
-          </h1>
+        <div className="w-full max-w-5xl flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            {activeSection !== AppSection.HOME && (
+              <button 
+                onClick={() => setActiveSection(AppSection.HOME)}
+                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-[#5d4017]"
+                aria-label="Voltar para o início"
+              >
+                <ChevronLeft size={24} />
+              </button>
+            )}
+            <h1 className={`font-serif font-bold transition-all duration-300 ${
+              activeSection === AppSection.HOME 
+                ? 'text-xl text-[#f8bc15]' 
+                : 'text-lg text-[#5d4017]'
+            }`}>
+              {activeSection === AppSection.HOME ? 'FLAT IPÊ' : currentTitle.toUpperCase()}
+            </h1>
+          </div>
+          
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`p-2 rounded-full transition-colors ${
+              activeSection === AppSection.HOME ? 'text-white hover:bg-white/10' : 'text-[#5d4017] hover:bg-gray-100'
+            }`}
+          >
+            {isMenuOpen ? <X size={26} /> : <MenuIcon size={26} />}
+          </button>
         </div>
-        
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`p-2 rounded-full transition-colors ${
-            activeSection === AppSection.HOME ? 'text-white hover:bg-white/10' : 'text-[#5d4017] hover:bg-gray-100'
-          }`}
-        >
-          {isMenuOpen ? <X size={26} /> : <MenuIcon size={26} />}
-        </button>
       </header>
 
       {/* Side Menu Drawer */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[60] flex justify-end">
           <div className="absolute inset-0 bg-[#3d2b10]/60 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
-          <div className="relative w-[300px] bg-white h-full shadow-2xl p-8 flex flex-col gap-8 animate-slideInRight">
+          <div className="relative w-full max-w-[350px] bg-white h-full shadow-2xl p-8 flex flex-col gap-8 animate-slideInRight">
             <div className="flex justify-between items-center border-b pb-6 border-gray-100">
               <h2 className="text-2xl font-serif font-bold text-[#5d4017]">Menu</h2>
               <button onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-[#5d4017]"><X size={28} /></button>
             </div>
-            <nav className="flex flex-col gap-3">
+            <nav className="flex flex-col gap-3 overflow-y-auto">
               <button 
                 onClick={() => { setActiveSection(AppSection.HOME); }}
                 className={`text-left p-4 rounded-2xl transition-all flex items-center gap-4 ${activeSection === AppSection.HOME ? 'bg-[#5d4017] text-[#f8bc15] font-bold shadow-lg' : 'text-[#3d2b10] hover:bg-[#fcfaf7]'}`}
@@ -123,8 +125,10 @@ const App: React.FC = () => {
       )}
 
       {/* Content Area */}
-      <main className="flex-1 overflow-x-hidden">
-        {renderSection()}
+      <main className="flex-1 overflow-x-hidden flex flex-col items-center">
+        <div className="w-full max-w-5xl">
+          {renderSection()}
+        </div>
       </main>
 
       {/* Quick Access Floating Button - WhatsApp Branding */}

@@ -45,18 +45,18 @@ const CheckOutSection: React.FC = () => {
           <p className="text-sm text-gray-500">Agradecemos sua atenção e feedback para melhorarmos sempre.</p>
         </div>
         
-        <div className="grid grid-cols-1 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <a 
             href="https://wa.me/5562985451980" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-bold active:scale-[0.98] transition-all"
+            className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 px-4 rounded-xl font-bold active:scale-[0.98] transition-all h-full"
           >
             <MessageSquare size={20} />
-            Enviar Observações via WhatsApp
+            <span className="text-center">Enviar Observações via WhatsApp</span>
           </a>
-          <div className="p-4 bg-gray-50 rounded-xl text-center border border-gray-100">
-            <p className="text-xs text-gray-400 uppercase font-bold mb-2">Contato do Anfitrião</p>
+          <div className="p-4 bg-gray-50 rounded-xl text-center border border-gray-100 flex flex-col justify-center">
+            <p className="text-xs text-gray-400 uppercase font-bold mb-1">Contato do Anfitrião</p>
             <p className="text-lg font-bold text-gray-700">(62) 98545-1980</p>
           </div>
         </div>

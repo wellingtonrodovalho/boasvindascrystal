@@ -93,19 +93,19 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </div>
 
       {/* Main Menu Grid */}
-      <div className="px-6 py-10 grid grid-cols-2 gap-5">
+      <div className="px-6 py-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {MENU_ITEMS.filter(item => item.id !== AppSection.CHAT).map((item) => (
           <button
             key={item.id}
             onClick={() => onNavigate(item.id)}
-            className="flex flex-col gap-4 p-5 bg-white rounded-3xl shadow-sm hover:shadow-md border border-gray-100 transition-all active:scale-[0.98] text-left group"
+            className="flex flex-col gap-4 p-5 bg-white rounded-3xl shadow-sm hover:shadow-md border border-gray-100 transition-all active:scale-[0.98] text-left group h-full"
           >
             <div className="bg-[#fcfaf7] text-[#5d4017] w-fit p-4 rounded-2xl group-hover:bg-[#f8bc15] group-hover:text-white transition-colors duration-300">
               {React.cloneElement(item.icon as React.ReactElement<any>, { size: 30 })}
             </div>
-            <div>
+            <div className="flex flex-col flex-1">
               <h3 className="font-bold text-base text-[#5d4017] leading-tight">{item.title}</h3>
-              <p className="text-xs text-gray-400 mt-2 line-clamp-2 leading-relaxed">{item.description}</p>
+              <p className="text-xs text-gray-400 mt-2 line-clamp-2 leading-relaxed flex-1">{item.description}</p>
             </div>
           </button>
         ))}

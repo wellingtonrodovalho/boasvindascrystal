@@ -12,7 +12,7 @@ const RulesSection: React.FC = () => {
       </div>
 
       {/* Rules Grid */}
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <RuleItem 
           icon={<Volume2 className="text-indigo-500" />}
           title="Silêncio e Respeito"

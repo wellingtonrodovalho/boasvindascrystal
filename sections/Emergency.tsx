@@ -11,7 +11,7 @@ const EmergencySection: React.FC = () => {
         <p className="text-sm">Em caso de emergência, entre em contato imediatamente com os serviços competentes.</p>
       </div>
 
-      <div className="space-y-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {EMERGENCY_CONTACTS.map((contact, idx) => (
           <a
             key={idx}

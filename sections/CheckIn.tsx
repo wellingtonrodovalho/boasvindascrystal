@@ -55,30 +55,32 @@ const CheckInSection: React.FC = () => {
       </section>
 
       {/* Instructions Card */}
-      <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-        <h4 className="font-bold text-gray-800 mb-2">Na recepção</h4>
-        <p className="text-sm text-gray-600 leading-relaxed">
-          Identifique-se e receba o cartão para ativar a energia do apartamento. Todos os hóspedes devem apresentar documentos de identificação.
-        </p>
-      </div>
-
-      {/* External Links */}
-      <div className="space-y-3">
-        <a 
-          href={mapsUrl}
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center justify-between w-full p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
-        >
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-blue-50 text-blue-600 rounded-lg"><MapPin size={20} /></div>
-            <div className="flex flex-col">
-              <span className="font-bold text-gray-700">Como chegar</span>
-              <span className="text-[10px] text-gray-400">Crystal Place</span>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+          <h4 className="font-bold text-gray-800 mb-2">Na recepção</h4>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            Identifique-se e receba o cartão para ativar a energia do apartamento. Todos os hóspedes devem apresentar documentos de identificação.
+          </p>
+        </div>
+        
+        {/* External Links */}
+        <div className="space-y-3">
+          <a 
+            href={mapsUrl}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-between w-full p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors h-full"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-blue-50 text-blue-600 rounded-lg"><MapPin size={20} /></div>
+              <div className="flex flex-col">
+                <span className="font-bold text-gray-700">Como chegar</span>
+                <span className="text-[10px] text-gray-400">Crystal Place</span>
+              </div>
             </div>
-          </div>
-          <ChevronRight size={20} className="text-gray-300" />
-        </a>
+            <ChevronRight size={20} className="text-gray-300" />
+          </a>
+        </div>
       </div>
     </div>
   );
