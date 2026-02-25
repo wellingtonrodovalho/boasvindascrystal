@@ -38,7 +38,7 @@ const LocalGuideSection: React.FC = () => {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.1em] transition-all duration-200 border ${
                 filter === cat 
-                  ? 'bg-[#5d4017] text-[#f8bc15] border-[#5d4017] shadow-md scale-105' 
+                  ? 'bg-[#5d4017] text-[#f1b418] border-[#5d4017] shadow-md scale-105' 
                   : 'bg-white text-gray-400 border-gray-100 hover:border-gray-200 active:bg-gray-50'
               }`}
             >
@@ -53,7 +53,7 @@ const LocalGuideSection: React.FC = () => {
         {filteredPlaces.map((place, idx) => (
           <div 
             key={idx} 
-            className="bg-white rounded-2xl shadow-sm p-5 border border-gray-100 flex items-center justify-between group hover:border-[#f8bc15]/30 transition-all animate-slideUp"
+            className="bg-white rounded-2xl shadow-sm p-5 border border-gray-100 flex items-center justify-between group hover:border-[#f1b418]/30 transition-all animate-slideUp"
             style={{ animationDelay: `${idx * 50}ms` }}
           >
             <div className="flex items-center gap-4 flex-1 min-w-0">
@@ -73,7 +73,7 @@ const LocalGuideSection: React.FC = () => {
             
             <button 
               onClick={() => handleNavigate(place.address || place.name)}
-              className="bg-[#5d4017] text-[#f8bc15] p-3 rounded-xl flex items-center justify-center shadow-md active:scale-90 transition-all hover:bg-[#3d2b10] shrink-0"
+              className="bg-[#5d4017] text-[#f1b418] p-3 rounded-xl flex items-center justify-center shadow-md active:scale-90 transition-all hover:bg-[#3d2b10] shrink-0"
               aria-label="Abrir no Google Maps"
             >
               <Navigation size={20} />

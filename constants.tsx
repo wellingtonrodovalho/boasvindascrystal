@@ -23,10 +23,10 @@ import { AppSection } from './types';
 // Cores extraídas diretamente da logo enviada
 export const COLORS = {
   primary: '#5d4017',   // Marrom do tronco
-  secondary: '#f8bc15', // Amarelo das flores/folhas
+  secondary: '#f1b418', // Amarelo das flores/folhas
   bg: '#fcfaf7',        // Bege claríssimo para o fundo
   text: '#3d2b10',      // Texto em marrom escuro
-  accent: '#f8bc15'     // Destaques em amarelo
+  accent: '#f1b418'     // Destaques em amarelo
 };
 
 export const MENU_ITEMS = [
@@ -36,7 +36,6 @@ export const MENU_ITEMS = [
   { id: AppSection.LOCAL_GUIDE, title: 'Guia Local', icon: <MapPin size={28} />, description: 'O que fazer por perto' },
   { id: AppSection.CHECKOUT, title: 'Check-out', icon: <LogOut size={28} />, description: 'Lembretes para sua saída' },
   { id: AppSection.EMERGENCY, title: 'Emergência', icon: <PhoneCall size={28} />, description: 'Contatos importantes' },
-  { id: AppSection.CHAT, title: 'Assistente AI', icon: <Sparkles size={28} />, description: 'Tire dúvidas sobre sua estadia' },
 ];
 
 export const WIFI_INFO = {
@@ -59,7 +58,6 @@ export const EMERGENCY_CONTACTS = [
 
 export const LOCAL_PLACES = [
   { category: 'Restaurantes', name: 'Carne de Sol 1008', address: 'R. 1008, St. Pedro Ludovico, Goiânia' },
-  { category: 'Restaurantes', name: 'Restaurante Santorini', address: 'Goiânia, GO' },
   { category: 'Restaurantes', name: 'Areião Restaurante', address: 'Térreo do Condomínio' },
   { category: 'Restaurantes', name: 'Bistrô CHICA DOIDA', address: 'Térreo do Condomínio' },
   { category: 'Supermercados', name: 'Costa Atacadão', address: 'St. Pedro Ludovico, Goiânia' },

@@ -19,9 +19,9 @@ const LogoIpe = ({ className }: { className?: string }) => (
     </g>
     
     {/* Três círculos amarelos perfeitamente simétricos */}
-    <circle cx="256" cy="160" r="95" fill="#f8bc15" /> {/* Topo */}
-    <circle cx="110" cy="280" r="95" fill="#f8bc15" /> {/* Esquerda */}
-    <circle cx="402" cy="280" r="95" fill="#f8bc15" /> {/* Direita */}
+    <circle cx="256" cy="160" r="95" fill="#f1b418" /> {/* Topo */}
+    <circle cx="110" cy="280" r="95" fill="#f1b418" /> {/* Esquerda */}
+    <circle cx="402" cy="280" r="95" fill="#f1b418" /> {/* Direita */}
   </svg>
 );
 
@@ -39,14 +39,14 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       {/* Header / Hero Section */}
       <div className="bg-[#5d4017] text-white px-6 pt-6 pb-12 rounded-b-[50px] shadow-2xl relative overflow-hidden">
         {/* Background Accent */}
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#f8bc15]/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#f1b418]/10 rounded-full blur-3xl"></div>
         
         <div className="flex justify-between items-center mb-8 relative z-10">
           <div className="pt-2">
             <h2 className="text-xl opacity-80 font-medium tracking-tight">Seja bem-vindo!</h2>
-            <p className="text-4xl font-serif font-bold mt-1 text-[#f8bc15]">Flat Ipê</p>
+            <p className="text-4xl font-serif font-bold mt-1 text-[#f1b418]">Flat Ipê</p>
           </div>
-          <div className="bg-white p-2 rounded-full shadow-lg border-2 border-[#f8bc15] flex items-center justify-center aspect-square w-24 h-24 overflow-hidden">
+          <div className="bg-white p-2 rounded-full shadow-lg border-2 border-[#f1b418] flex items-center justify-center aspect-square w-24 h-24 overflow-hidden">
             <LogoIpe className="w-[85%] h-[85%]" />
           </div>
         </div>
@@ -54,7 +54,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide relative z-10">
           <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl min-w-[150px] border border-white/20">
             <div className="flex items-center gap-2 mb-1">
-              <Calendar size={14} className="text-[#f8bc15]" />
+              <Calendar size={14} className="text-[#f1b418]" />
               <span className="text-[10px] uppercase font-bold tracking-wider opacity-70">Data de hoje</span>
             </div>
             <p className="text-xs font-semibold capitalize">{today}</p>
@@ -94,13 +94,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
       {/* Main Menu Grid */}
       <div className="px-6 py-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {MENU_ITEMS.filter(item => item.id !== AppSection.CHAT).map((item) => (
+        {MENU_ITEMS.map((item) => (
           <button
             key={item.id}
             onClick={() => onNavigate(item.id)}
             className="flex flex-col gap-4 p-5 bg-white rounded-3xl shadow-sm hover:shadow-md border border-gray-100 transition-all active:scale-[0.98] text-left group h-full"
           >
-            <div className="bg-[#fcfaf7] text-[#5d4017] w-fit p-4 rounded-2xl group-hover:bg-[#f8bc15] group-hover:text-white transition-colors duration-300">
+            <div className="bg-[#fcfaf7] text-[#5d4017] w-fit p-4 rounded-2xl group-hover:bg-[#f1b418] group-hover:text-white transition-colors duration-300">
               {React.cloneElement(item.icon as React.ReactElement<any>, { size: 30 })}
             </div>
             <div className="flex flex-col flex-1">

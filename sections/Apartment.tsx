@@ -140,20 +140,20 @@ const FeatureCard: React.FC<{
   const content = (
     <div className={`bg-white p-4 rounded-xl shadow-sm flex gap-4 border transition-all duration-300 ${
       isButton 
-        ? 'border-[#f8bc15] ring-1 ring-[#f8bc15]/10 shadow-md active:scale-[0.98]' 
+        ? 'border-[#f1b418] ring-1 ring-[#f1b418]/10 shadow-md active:scale-[0.98]' 
         : 'border-gray-100'
     }`}>
-      <div className={`p-2 h-fit rounded-lg ${isButton ? 'bg-[#f8bc15]/10' : 'bg-gray-50'}`}>
+      <div className={`p-2 h-fit rounded-lg ${isButton ? 'bg-[#f1b418]/10' : 'bg-gray-50'}`}>
         {icon}
       </div>
       <div className="flex-1">
         <div className="flex justify-between items-start mb-1">
           <h4 className={`font-bold text-sm ${isButton ? 'text-[#5d4017]' : 'text-gray-800'}`}>{title}</h4>
-          {isButton && <ExternalLink size={16} className="text-[#f8bc15]" />}
+          {isButton && <ExternalLink size={16} className="text-[#f1b418]" />}
         </div>
         <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
         {isButton && (
-          <p className="text-[10px] text-[#f8bc15] font-black mt-2 uppercase tracking-widest">
+          <p className="text-[10px] text-[#f1b418] font-black mt-2 uppercase tracking-widest">
             Toque para ver tutorial
           </p>
         )}

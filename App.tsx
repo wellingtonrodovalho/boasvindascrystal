@@ -12,7 +12,6 @@ import RulesSection from './sections/Rules';
 import LocalGuideSection from './sections/LocalGuide';
 import CheckOutSection from './sections/CheckOut';
 import EmergencySection from './sections/Emergency';
-import ChatSection from './sections/Chat';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<AppSection>(AppSection.HOME);
@@ -42,7 +41,6 @@ const App: React.FC = () => {
       case AppSection.LOCAL_GUIDE: return <LocalGuideSection />;
       case AppSection.CHECKOUT: return <CheckOutSection />;
       case AppSection.EMERGENCY: return <EmergencySection />;
-      case AppSection.CHAT: return <ChatSection />;
       default: return <HomeSection onNavigate={setActiveSection} />;
     }
   };
@@ -72,7 +70,7 @@ const App: React.FC = () => {
             )}
             <h1 className={`font-serif font-bold transition-all duration-300 ${
               activeSection === AppSection.HOME 
-                ? 'text-xl text-[#f8bc15]' 
+                ? 'text-xl text-[#f1b418]' 
                 : 'text-lg text-[#5d4017]'
             }`}>
               {activeSection === AppSection.HOME ? 'FLAT IPÊ' : currentTitle.toUpperCase()}
@@ -102,7 +100,7 @@ const App: React.FC = () => {
             <nav className="flex flex-col gap-3 overflow-y-auto">
               <button 
                 onClick={() => { setActiveSection(AppSection.HOME); }}
-                className={`text-left p-4 rounded-2xl transition-all flex items-center gap-4 ${activeSection === AppSection.HOME ? 'bg-[#5d4017] text-[#f8bc15] font-bold shadow-lg' : 'text-[#3d2b10] hover:bg-[#fcfaf7]'}`}
+                className={`text-left p-4 rounded-2xl transition-all flex items-center gap-4 ${activeSection === AppSection.HOME ? 'bg-[#5d4017] text-[#f1b418] font-bold shadow-lg' : 'text-[#3d2b10] hover:bg-[#fcfaf7]'}`}
               >
                 Início
               </button>
@@ -110,9 +108,9 @@ const App: React.FC = () => {
                 <button 
                   key={item.id}
                   onClick={() => { setActiveSection(item.id); }}
-                  className={`text-left p-4 rounded-2xl transition-all flex items-center gap-4 ${activeSection === item.id ? 'bg-[#5d4017] text-[#f8bc15] font-bold shadow-lg' : 'text-[#3d2b10] hover:bg-[#fcfaf7]'}`}
+                  className={`text-left p-4 rounded-2xl transition-all flex items-center gap-4 ${activeSection === item.id ? 'bg-[#5d4017] text-[#f1b418] font-bold shadow-lg' : 'text-[#3d2b10] hover:bg-[#fcfaf7]'}`}
                 >
-                  <span className={`${activeSection === item.id ? 'text-[#f8bc15]' : 'text-[#5d4017]'} opacity-80`}>{item.icon}</span>
+                  <span className={`${activeSection === item.id ? 'text-[#f1b418]' : 'text-[#5d4017]'} opacity-80`}>{item.icon}</span>
                   {item.title}
                 </button>
               ))}
