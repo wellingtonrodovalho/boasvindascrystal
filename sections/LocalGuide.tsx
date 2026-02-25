@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { LOCAL_PLACES } from '../constants';
-import { MapPin, Navigation, Search, Utensils, ShoppingBag, Landmark, Coffee, ShieldAlert, PhoneCall } from 'lucide-react';
+import { MapPin, Navigation, Search, Utensils, ShoppingBag, Landmark, Coffee, ShieldAlert, PhoneCall, Building, Store } from 'lucide-react';
 
-const categories = ['Tudo', 'Restaurantes', 'Panificadora', 'Farmácias', 'Supermercados', 'Shoppings', 'Lazer', 'Emergência Médica'];
+const categories = ['Tudo', 'Restaurantes', 'Panificadora', 'Farmácias', 'Supermercados', 'Shoppings', 'Lazer', 'Bancos', 'Feiras', 'Emergência Médica'];
 
 const LocalGuideSection: React.FC = () => {
   const [filter, setFilter] = useState('Tudo');
@@ -34,6 +34,8 @@ const LocalGuideSection: React.FC = () => {
       case 'Supermercados': return <Search size={18} />;
       case 'Shoppings': return <ShoppingBag size={18} />;
       case 'Lazer': return <Landmark size={18} />;
+      case 'Bancos': return <Building size={18} />;
+      case 'Feiras': return <Store size={18} />;
       default: return <MapPin size={18} />;
     }
   };
