@@ -47,7 +47,7 @@ const CheckOutSection: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <a 
-            href="https://wa.me/5562985451980" 
+            href="https://wa.me/5562991514568" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 px-4 rounded-xl font-bold active:scale-[0.98] transition-all h-full"
@@ -57,7 +57,7 @@ const CheckOutSection: React.FC = () => {
           </a>
           <div className="p-4 bg-gray-50 rounded-xl text-center border border-gray-100 flex flex-col justify-center">
             <p className="text-xs text-gray-400 uppercase font-bold mb-1">Contato do Anfitrião</p>
-            <p className="text-lg font-bold text-gray-700">(62) 98545-1980</p>
+            <p className="text-lg font-bold text-gray-700">(62) 99151-4568</p>
           </div>
         </div>
       </section>

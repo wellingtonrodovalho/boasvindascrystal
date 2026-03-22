@@ -26,7 +26,7 @@ const LogoIpe = ({ className }: { className?: string }) => (
 );
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
-  const whatsappUrl = "https://wa.me/5562985451980";
+  const whatsappUrl = "https://wa.me/5562991514568";
   
   const today = new Intl.DateTimeFormat('pt-BR', { 
     weekday: 'long', 

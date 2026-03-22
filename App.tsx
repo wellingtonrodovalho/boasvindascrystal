@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<AppSection>(AppSection.HOME);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const whatsappUrl = "https://wa.me/5562985451980";
+  const whatsappUrl = "https://wa.me/5562991514568";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,9 +153,9 @@ const App: React.FC = () => {
             
             <div className="flex flex-col gap-2">
               <p className="font-bold text-[#5d4017] text-[10px] uppercase tracking-widest opacity-60 mb-1">Contato Direto</p>
-              <a href="https://wa.me/5562985451980" target="_blank" rel="noopener noreferrer" className="bg-[#25D366]/10 text-[#5d4017] py-2 px-4 rounded-xl hover:bg-[#25D366]/20 transition-all font-bold inline-flex items-center justify-center gap-2">
+              <a href="https://wa.me/5562991514568" target="_blank" rel="noopener noreferrer" className="bg-[#25D366]/10 text-[#5d4017] py-2 px-4 rounded-xl hover:bg-[#25D366]/20 transition-all font-bold inline-flex items-center justify-center gap-2">
                 <MessageCircle size={16} className="text-[#25D366]" />
-                (62) 98545-1980
+                (62) 99151-4568
               </a>
             </div>
           </div>
