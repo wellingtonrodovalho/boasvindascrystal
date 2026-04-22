@@ -63,7 +63,8 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose, onNaviga
         type: 'emergency' as const
       })),
       // Static Keywords / Topics
-      { title: 'Wi-Fi / Internet', description: 'Dados de acesso à rede do condomínio', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
+      { title: 'Senha do Wi-Fi / Internet', description: 'Dados de acesso e senha da rede do condomínio', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
+      { title: 'Senha da Porta / Fechadura', description: 'Como abrir a fechadura digital e a regra da senha', section: AppSection.CHECKIN, icon: <Key size={20} />, type: 'static' as const },
       { title: 'Ar Condicionado', description: 'Como usar o controle do AC', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
       { title: 'Netflix / TV', description: 'Instruções para canais e streaming', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
       { title: 'Cafeteira', description: 'Manual da máquina Três Corações', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
@@ -119,7 +120,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose, onNaviga
             <SearchIcon className="mx-auto text-gray-100 mb-4" size={64} />
             <p className="text-gray-400 text-sm">Digite algo para pesquisar no guia do Flat Ipê</p>
             <div className="mt-8 flex flex-wrap justify-center gap-2">
-              {['Wi-Fi', 'Netflix', 'Restaurante', 'Festa', 'Lixo', 'Checkout'].map(suggestion => (
+              {['Senha', 'Wi-Fi', 'Netflix', 'Restaurante', 'Lixo', 'Checkout'].map(suggestion => (
                 <button 
                   key={suggestion}
                   onClick={() => setQuery(suggestion)}

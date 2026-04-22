@@ -104,21 +104,18 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onOpenSearch }) => {
         </a>
       </div>
 
-      {/* Main Menu Grid */}
-      <div className="px-6 py-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {/* Main Menu - compact horizontal row */}
+      <div className="px-6 py-10 flex gap-4 overflow-x-auto scrollbar-hide pb-4">
         {MENU_ITEMS.map((item) => (
           <button
             key={item.id}
             onClick={() => onNavigate(item.id)}
-            className="flex flex-col gap-4 p-5 bg-white rounded-3xl shadow-sm hover:shadow-md border border-gray-100 transition-all active:scale-[0.98] text-left group h-full"
+            className="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-3xl shadow-sm hover:shadow-md border border-gray-100 transition-all active:scale-[0.98] text-center group min-w-[130px] shrink-0 h-32"
           >
-            <div className="bg-[#fcfaf7] text-[#5d4017] w-fit p-4 rounded-2xl group-hover:bg-[#f1b418] group-hover:text-white transition-colors duration-300">
-              {React.cloneElement(item.icon as React.ReactElement<any>, { size: 30 })}
+            <div className="bg-[#fcfaf7] text-[#5d4017] p-3 rounded-2xl group-hover:bg-[#f1b418] group-hover:text-white transition-colors duration-300">
+              {React.cloneElement(item.icon as React.ReactElement<any>, { size: 24 })}
             </div>
-            <div className="flex flex-col flex-1">
-              <h3 className="font-bold text-base text-[#5d4017] leading-tight">{item.title}</h3>
-              <p className="text-xs text-gray-400 mt-2 line-clamp-2 leading-relaxed flex-1">{item.description}</p>
-            </div>
+            <h3 className="font-bold text-[11px] text-[#5d4017] leading-tight uppercase tracking-wider">{item.title}</h3>
           </button>
         ))}
       </div>
