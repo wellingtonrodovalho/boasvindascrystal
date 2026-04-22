@@ -2,7 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { AppSection } from './types';
 import { COLORS, MENU_ITEMS } from './constants';
-import { ChevronLeft, Menu as MenuIcon, X, MessageCircle, Home as HomeIcon } from 'lucide-react';
+import { ChevronLeft, Menu as MenuIcon, X, MessageCircle, Home as HomeIcon, Search as SearchIcon } from 'lucide-react';
+
+// Components
+import SearchOverlay from './components/SearchOverlay';
 
 // Sections
 import HomeSection from './sections/Home';
@@ -16,6 +19,7 @@ import EmergencySection from './sections/Emergency';
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<AppSection>(AppSection.HOME);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const whatsappUrl = "https://wa.me/5562991514568";
 
@@ -34,7 +38,7 @@ const App: React.FC = () => {
 
   const renderSection = () => {
     switch (activeSection) {
-      case AppSection.HOME: return <HomeSection onNavigate={setActiveSection} />;
+      case AppSection.HOME: return <HomeSection onNavigate={setActiveSection} onOpenSearch={() => setIsSearchOpen(true)} />;
       case AppSection.APARTMENT: return <ApartmentSection />;
       case AppSection.CHECKIN: return <CheckInSection />;
       case AppSection.RULES: return <RulesSection />;
@@ -77,16 +81,35 @@ const App: React.FC = () => {
             </h1>
           </div>
           
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`p-2 rounded-full transition-colors ${
-              activeSection === AppSection.HOME ? 'text-white hover:bg-white/10' : 'text-[#5d4017] hover:bg-gray-100'
-            }`}
-          >
-            {isMenuOpen ? <X size={26} /> : <MenuIcon size={26} />}
-          </button>
+          <div className="flex items-center gap-1">
+            <button 
+              onClick={() => setIsSearchOpen(true)}
+              className={`p-2 rounded-full transition-colors ${
+                activeSection === AppSection.HOME ? 'text-white hover:bg-white/10' : 'text-[#5d4017] hover:bg-gray-100'
+              }`}
+              aria-label="Pesquisar"
+            >
+              <SearchIcon size={24} />
+            </button>
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`p-2 rounded-full transition-colors ${
+                activeSection === AppSection.HOME ? 'text-white hover:bg-white/10' : 'text-[#5d4017] hover:bg-gray-100'
+              }`}
+              aria-label="Menu"
+            >
+              {isMenuOpen ? <X size={26} /> : <MenuIcon size={26} />}
+            </button>
+          </div>
         </div>
       </header>
+
+      {/* Search Overlay */}
+      <SearchOverlay 
+        isOpen={isSearchOpen} 
+        onClose={() => setIsSearchOpen(false)} 
+        onNavigate={setActiveSection} 
+      />
 
       {/* Side Menu Drawer */}
       {isMenuOpen && (

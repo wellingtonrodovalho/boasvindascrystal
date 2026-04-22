@@ -2,10 +2,11 @@
 import React from 'react';
 import { AppSection } from '../types';
 import { MENU_ITEMS, COLORS } from '../constants';
-import { CloudSun, Calendar, MapPin, MessageCircle } from 'lucide-react';
+import { CloudSun, Calendar, MapPin, MessageCircle, Search } from 'lucide-react';
 
 interface HomeProps {
   onNavigate: (section: AppSection) => void;
+  onOpenSearch: () => void;
 }
 
 // Logo geométrica fiel à imagem enviada pelo usuário
@@ -25,7 +26,7 @@ const LogoIpe = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+const Home: React.FC<HomeProps> = ({ onNavigate, onOpenSearch }) => {
   const whatsappUrl = "https://wa.me/5562991514568";
   
   const today = new Intl.DateTimeFormat('pt-BR', { 
@@ -49,6 +50,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="bg-white p-2 rounded-full shadow-lg border-2 border-[#f1b418] flex items-center justify-center aspect-square w-24 h-24 overflow-hidden">
             <LogoIpe className="w-[85%] h-[85%]" />
           </div>
+        </div>
+
+        {/* Home Search Bar */}
+        <div className="mb-8 relative z-10">
+          <button 
+            onClick={onOpenSearch}
+            className="w-full bg-white/20 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 text-white border border-white/30 hover:bg-white/30 transition-all text-left shadow-lg group"
+          >
+            <Search size={22} className="text-[#f1b418] group-hover:scale-110 transition-transform" />
+            <span className="text-white/80 font-medium">O que você está procurando?</span>
+          </button>
         </div>
         
         <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide relative z-10">
