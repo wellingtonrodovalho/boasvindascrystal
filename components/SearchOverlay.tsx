@@ -64,7 +64,8 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose, onNaviga
       })),
       // Static Keywords / Topics
       { title: 'Senha do Wi-Fi / Internet', description: 'Dados de acesso e senha da rede do condomínio', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
-      { title: 'Senha da Porta / Fechadura', description: 'Como abrir a fechadura digital e a regra da senha', section: AppSection.CHECKIN, icon: <Key size={20} />, type: 'static' as const },
+      { title: 'Senha da Porta / Fechadura', description: 'Senha pessoal e intransferível (a recepção não tem acesso)', section: AppSection.CHECKIN, icon: <Key size={20} />, type: 'static' as const },
+      { title: 'Segurança / Privacidade', description: 'Informações sobre a privacidade da sua senha', section: AppSection.CHECKIN, icon: <Key size={20} />, type: 'static' as const },
       { title: 'Ar Condicionado', description: 'Como usar o controle do AC', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
       { title: 'Netflix / TV', description: 'Instruções para canais e streaming', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
       { title: 'Cafeteira', description: 'Manual da máquina Três Corações', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
@@ -72,6 +73,9 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose, onNaviga
       { title: 'Lixo / Descarte', description: 'Onde descartar os resíduos', section: AppSection.RULES, icon: <ClipboardList size={20} />, type: 'static' as const },
       { title: 'Fumo / Cigarro', description: 'Regras sobre fumo no apartamento', section: AppSection.RULES, icon: <ClipboardList size={20} />, type: 'static' as const },
       { title: 'Pets / Animais', description: 'Regras para trazer seu animal de estimação', section: AppSection.RULES, icon: <ClipboardList size={20} />, type: 'static' as const },
+      { title: 'Piscina (Mezanino)', description: 'Horários e regras da piscina (06:00 às 23:00)', section: AppSection.APARTMENT, icon: <Building size={20} />, type: 'static' as const },
+      { title: 'Academia & SmartStore', description: 'Academia e loja de conveniência 24h no Mezanino', section: AppSection.APARTMENT, icon: <Building size={20} />, type: 'static' as const },
+      { title: 'Sauna (Mezanino)', description: 'Horários da sauna (09:00 às 21:00) e chave na recepção', section: AppSection.APARTMENT, icon: <Building size={20} />, type: 'static' as const },
     ];
 
     return allItems.filter(item => {
@@ -120,7 +124,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose, onNaviga
             <SearchIcon className="mx-auto text-gray-100 mb-4" size={64} />
             <p className="text-gray-400 text-sm">Digite algo para pesquisar no guia do Flat Ipê</p>
             <div className="mt-8 flex flex-wrap justify-center gap-2">
-              {['Senha', 'Wi-Fi', 'Netflix', 'Restaurante', 'Lixo', 'Checkout'].map(suggestion => (
+              {['Senha', 'Wi-Fi', 'Lazer', 'Netflix', 'Restaurante', 'Lixo'].map(suggestion => (
                 <button 
                   key={suggestion}
                   onClick={() => setQuery(suggestion)}

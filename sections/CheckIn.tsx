@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Clock, Smartphone, MapPin, ChevronRight, Info } from 'lucide-react';
+import { Clock, Smartphone, MapPin, ChevronRight, Info, ShieldCheck } from 'lucide-react';
 
 const CheckInSection: React.FC = () => {
   const destinationAddress = "Condomínio do Edifício Crystal Place, Av. Edmundo P. de Abreu, 31 - St. Pedro Ludovico, Goiânia - GO, 74823-030";
@@ -50,6 +50,16 @@ const CheckInSection: React.FC = () => {
           <div className="flex items-start gap-3 bg-white/20 p-3 rounded-lg text-sm">
             <Info size={24} className="shrink-0" />
             <p>Ao fechar a porta, <strong>sempre trave a fechadura movendo a maçaneta para cima</strong>, tanto ao entrar quanto ao sair.</p>
+          </div>
+
+          <div className="bg-red-500/20 p-4 rounded-xl border border-white/10 flex items-start gap-3">
+            <div className="bg-white text-red-600 p-1.5 rounded-lg shrink-0">
+              <ShieldCheck size={18} />
+            </div>
+            <p className="text-[11px] leading-tight font-medium">
+              <strong>AVISO DE SEGURANÇA:</strong> Sua senha é pessoal e intransferível. Não forneça a ninguém. 
+              <span className="block mt-1 opacity-80 italic">A recepção não tem acesso à sua senha.</span>
+            </p>
           </div>
         </div>
       </section>

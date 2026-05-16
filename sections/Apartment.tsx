@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { WIFI_INFO } from '../constants';
-import { Wifi, Tv, Coffee, Wind, Shirt, Building, ExternalLink, Bed, ChevronDown, ChevronUp, Monitor, Info, Power, Radio, Film } from 'lucide-react';
+import { Wifi, Tv, Coffee, Wind, Shirt, Building, ExternalLink, Bed, ChevronDown, ChevronUp, Monitor, Info, Power, Radio, Film, Dumbbell, ShoppingBag, Waves, ThermometerSun, Clock } from 'lucide-react';
 
 const ApartmentSection: React.FC = () => {
   const manualCafeteiraUrl = "https://docs.google.com/presentation/d/1npz-wlSkhDQNbPA5bACCCIG6XIrYGRtw1yEb621EBEg/edit?usp=sharing";
@@ -119,11 +119,46 @@ const ApartmentSection: React.FC = () => {
             title="LAVANDERIA (SUB-SOLO)"
             description="Self-service. R$ 16,00 lavar / R$ 16,00 secar."
           />
-          <FeatureCard 
+          <ExpandableFeatureCard 
             icon={<Building className="text-amber-600" />}
             title="LAZER (MEZANINO)"
-            description="Piscina, Academia e SmartStore (Aperte M)."
-          />
+            description="Informações sobre Piscina, Academia, SmartStore e Sauna. Aperte M no Elevador."
+          >
+            <div className="mt-4 space-y-4 text-sm border-t pt-4 border-gray-100">
+              <div className="flex items-start gap-3 bg-gray-50 p-3 rounded-xl">
+                <div className="p-1.5 bg-white text-[#5d4017] rounded-lg shadow-sm">
+                  <Dumbbell size={18} />
+                </div>
+                <div>
+                  <p className="font-bold text-[#5d4017]">Academia & SmartStore</p>
+                  <p className="text-gray-600">Funcionamento <span className="font-bold">24 horas</span>.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 bg-blue-50/50 p-3 rounded-xl border border-blue-100/50">
+                <div className="p-1.5 bg-white text-blue-600 rounded-lg shadow-sm">
+                  <Waves size={18} />
+                </div>
+                <div>
+                  <p className="font-bold text-blue-800">Piscina</p>
+                  <p className="text-blue-700/80">Das <span className="font-bold">06:00 às 23:00</span> (Segunda a Domingo).</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 bg-orange-50/50 p-3 rounded-xl border border-orange-100/50">
+                <div className="p-1.5 bg-white text-orange-600 rounded-lg shadow-sm">
+                  <ThermometerSun size={18} />
+                </div>
+                <div>
+                  <p className="font-bold text-orange-800">Sauna</p>
+                  <p className="text-orange-700/80">Das <span className="font-bold">09:00 às 21:00</span>.</p>
+                  <p className="text-[10px] uppercase font-black text-orange-600 mt-1 flex items-center gap-1">
+                    <Info size={12} /> Necessário solicitar a chave na recepção
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ExpandableFeatureCard>
         </div>
       </section>
     </div>
