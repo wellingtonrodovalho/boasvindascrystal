@@ -1,11 +1,21 @@
 
 import React, { useState } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 import { WIFI_INFO } from '../constants';
-import { Wifi, Tv, Coffee, Wind, Shirt, Building, ExternalLink, Bed, ChevronDown, ChevronUp, Monitor, Info, Power, Radio, Film, Dumbbell, ShoppingBag, Waves, ThermometerSun, Clock } from 'lucide-react';
+import { Wifi, Tv, Coffee, Wind, Shirt, Building, ExternalLink, Bed, ChevronDown, ChevronUp, Monitor, Info, Power, Radio, Film, Dumbbell, ShoppingBag, Waves, ThermometerSun, Clock, Zap, QrCode, Copy, Check } from 'lucide-react';
 
 const ApartmentSection: React.FC = () => {
   const manualCafeteiraUrl = "https://docs.google.com/presentation/d/1npz-wlSkhDQNbPA5bACCCIG6XIrYGRtw1yEb621EBEg/edit?usp=sharing";
   const manualSofaCamaUrl = "https://drive.google.com/file/d/13fSrgLQYZjP83lBCS4v9lEJs4OQB2jKV/view?usp=drive_link";
+  
+  const [copied, setCopied] = useState(false);
+  const wifiQrValue = `WIFI:S:${WIFI_INFO.network};T:WPA;P:${WIFI_INFO.password};;`;
+
+  const copyPassword = () => {
+    navigator.clipboard.writeText(WIFI_INFO.password);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="p-6 animate-fadeIn space-y-8">
@@ -17,19 +27,85 @@ const ApartmentSection: React.FC = () => {
       </section>
 
       {/* Wi-Fi Info */}
-      <section className="bg-white p-6 rounded-2xl shadow-sm border border-green-100">
-        <div className="flex items-center gap-3 mb-4 text-green-700">
-          <Wifi size={24} />
+      <section className="bg-white p-6 rounded-2xl shadow-sm border border-green-100 relative overflow-hidden group">
+        <div className="absolute -right-8 -top-8 text-green-50/50 group-hover:text-green-50 transition-colors pointer-events-none">
+          <Wifi size={120} strokeWidth={1} />
+        </div>
+        
+        <div className="flex items-center gap-3 mb-6 text-green-700 relative z-10">
+          <div className="p-2 bg-green-50 rounded-lg">
+            <Wifi size={24} />
+          </div>
           <h3 className="text-xl font-bold font-serif">Conexão Wi-Fi</h3>
         </div>
-        <div className="space-y-3">
-          <div>
-            <p className="text-xs uppercase text-gray-400 font-bold tracking-wider">Rede</p>
-            <p className="text-lg font-mono bg-gray-50 p-2 rounded border border-gray-100">{WIFI_INFO.network}</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+          <div className="space-y-4">
+            <div>
+              <p className="text-[10px] uppercase text-gray-400 font-black tracking-[0.2em] mb-1">Nome da Rede</p>
+              <div className="flex items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-100">
+                <p className="text-lg font-mono font-bold text-[#5d4017]">{WIFI_INFO.network}</p>
+              </div>
+            </div>
+            
+            <div>
+              <p className="text-[10px] uppercase text-gray-400 font-black tracking-[0.2em] mb-1">Senha</p>
+              <div className="flex items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-100 group/pwd relative">
+                <p className="text-lg font-mono font-bold text-[#5d4017]">{WIFI_INFO.password}</p>
+                <button 
+                  onClick={copyPassword}
+                  className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all"
+                  title="Copiar senha"
+                >
+                  {copied ? <Check size={18} className="text-green-600" /> : <Copy size={18} />}
+                </button>
+                {copied && (
+                  <span className="absolute -top-8 right-0 bg-green-600 text-white text-[10px] px-2 py-1 rounded-md animate-bounce">
+                    Copiado!
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <a 
+                href={wifiQrValue}
+                className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-green-600/20 active:scale-[0.98] transition-all"
+              >
+                <Wifi size={20} />
+                Conectar agora
+              </a>
+              <p className="text-[10px] text-gray-400 mt-3 text-center leading-relaxed">
+                *O botão "Conectar" funciona em dispositivos compatíveis com o protocolo WIFI:. 
+                Caso não conecte, utilize o QR Code ao lado ou use a senha acima.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="text-xs uppercase text-gray-400 font-bold tracking-wider">Senha</p>
-            <p className="text-lg font-mono bg-gray-50 p-2 rounded border border-gray-100">{WIFI_INFO.password}</p>
+
+          <div className="flex flex-col items-center justify-center bg-gray-50/50 p-6 rounded-3xl border-2 border-dashed border-gray-200">
+            <div className="bg-white p-4 rounded-2xl shadow-md mb-4 border border-gray-100">
+              <QRCodeSVG 
+                value={wifiQrValue} 
+                size={140}
+                level="H"
+                includeMargin={false}
+                imageSettings={{
+                  src: "/favicon.ico", // Attempt to use favicon if it exists, or just a placeholder
+                  x: undefined,
+                  y: undefined,
+                  height: 24,
+                  width: 24,
+                  excavate: true,
+                }}
+              />
+            </div>
+            <div className="text-center">
+              <p className="flex items-center justify-center gap-2 font-bold text-[#5d4017] text-sm mb-1">
+                <QrCode size={18} className="text-[#f1b418]" />
+                Conexão Rápida
+              </p>
+              <p className="text-[11px] text-gray-500">Aponte a câmera do celular para conectar automaticamente</p>
+            </div>
           </div>
         </div>
       </section>
@@ -113,6 +189,11 @@ const ApartmentSection: React.FC = () => {
             icon={<Wind className="text-cyan-500" />}
             title="AR CONDICIONADO"
             description="Controle disponível na mesa de cabeceira."
+          />
+          <FeatureCard 
+            icon={<Zap className="text-amber-500" />}
+            title="TENSÃO DE ENERGIA"
+            description="Todas as tomadas do apartamento são 220V."
           />
           <FeatureCard 
             icon={<Shirt className="text-indigo-500" />}

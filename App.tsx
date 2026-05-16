@@ -72,12 +72,17 @@ const App: React.FC = () => {
                 <ChevronLeft size={24} />
               </button>
             )}
-            <h1 className={`font-serif font-bold transition-all duration-300 ${
+            <h1 className={`font-serif font-bold transition-all duration-300 flex flex-col items-start ${
               activeSection === AppSection.HOME 
-                ? 'text-xl text-[#f1b418]' 
-                : 'text-lg text-[#5d4017]'
+                ? 'text-[#f1b418]' 
+                : 'text-[#5d4017]'
             }`}>
-              {activeSection === AppSection.HOME ? 'FLAT IPÊ' : currentTitle.toUpperCase()}
+              <span className={activeSection === AppSection.HOME ? 'text-xl' : 'text-lg'}>
+                {activeSection === AppSection.HOME ? 'FLAT IPÊ' : currentTitle.toUpperCase()}
+              </span>
+              <span className={`text-[10px] tracking-[0.2em] font-black opacity-80 ${activeSection === AppSection.HOME ? 'text-white' : 'text-gray-400'}`}>
+                APTO 1609
+              </span>
             </h1>
           </div>
           

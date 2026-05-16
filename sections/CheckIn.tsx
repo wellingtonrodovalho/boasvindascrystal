@@ -66,6 +66,13 @@ const CheckInSection: React.FC = () => {
 
       {/* Instructions Card */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 italic">
+          <h4 className="font-bold text-gray-800 mb-2 not-italic">Unidade Designada</h4>
+          <p className="text-sm text-[#5d4017] font-bold">
+            Apartamento 1609
+          </p>
+          <p className="text-xs text-gray-500 mt-1">Localizado no Edifício Crystal Place</p>
+        </div>
         <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
           <h4 className="font-bold text-gray-800 mb-2">Na recepção</h4>
           <p className="text-sm text-gray-600 leading-relaxed">

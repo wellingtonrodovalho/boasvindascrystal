@@ -44,6 +44,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onOpenSearch }) => {
         
         <div className="flex justify-between items-center mb-8 relative z-10">
           <div className="pt-2">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="bg-[#f1b418]/20 text-[#f1b418] text-[9px] px-2 py-0.5 rounded-full font-black tracking-widest uppercase border border-[#f1b418]/30">APTO 1609</span>
+            </div>
             <h2 className="text-xl opacity-80 font-medium tracking-tight">Seja bem-vindo!</h2>
             <p className="text-4xl font-serif font-bold mt-1 text-[#f1b418]">Flat Ipê</p>
           </div>
@@ -128,7 +131,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onOpenSearch }) => {
           </div>
           <div>
             <p className="text-[11px] text-gray-400 uppercase font-bold tracking-widest">Localização</p>
-            <p className="text-xs text-gray-700 font-semibold">Setor Pedro Ludovico, Goiânia - GO</p>
+            <p className="text-xs text-gray-700 font-semibold">Crystal Place • Apto 1609</p>
+            <p className="text-[10px] text-gray-400">Setor Pedro Ludovico, Goiânia - GO</p>
           </div>
         </div>
       </div>

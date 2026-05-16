@@ -76,6 +76,8 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose, onNaviga
       { title: 'Piscina (Mezanino)', description: 'Horários e regras da piscina (06:00 às 23:00)', section: AppSection.APARTMENT, icon: <Building size={20} />, type: 'static' as const },
       { title: 'Academia & SmartStore', description: 'Academia e loja de conveniência 24h no Mezanino', section: AppSection.APARTMENT, icon: <Building size={20} />, type: 'static' as const },
       { title: 'Sauna (Mezanino)', description: 'Horários da sauna (09:00 às 21:00) e chave na recepção', section: AppSection.APARTMENT, icon: <Building size={20} />, type: 'static' as const },
+      { title: 'Tensão de Energia / Voltagem', description: 'Todas as tomadas do apartamento são 220V', section: AppSection.APARTMENT, icon: <Home size={20} />, type: 'static' as const },
+      { title: 'Número do Apartamento', description: 'Unidade 1609 no Edifício Crystal Place', section: AppSection.CHECKIN, icon: <Home size={20} />, type: 'static' as const },
     ];
 
     return allItems.filter(item => {
